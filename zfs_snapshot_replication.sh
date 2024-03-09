@@ -7,7 +7,7 @@ destination_pool="<zfs_destination_pool>"
 destination_dataset="<zfs_destination_dataset>"
 
 # ZFS snapshot settings
-snapshots="no"
+snapshots="yes"
 snapshot_hours="0"
 snapshot_days="7"
 snapshot_weeks="4"
@@ -64,7 +64,7 @@ create_snapshot_config()
 # Function to create snapshots
 create_snapshots()
 {
-  # Create the snapshots of the source directory using Sanoid if required
+  # Create the snapshots of the source directory using Sanoid
   echo "Creating snapshots"
   /usr/local/sbin/sanoid --configdir=$sanoid_config_complete_path --take-snapshots
 
@@ -94,7 +94,7 @@ prune_snapshots()
 # Perform snapshot functions
 zfs_snapshots()
 {
-  # Exit if autosnapshots not enabled
+  # Exit if snapshots not enabled
   if [ $snapshots != "yes" ]; then
     echo "Snapshots disabled, skipping"
     return
