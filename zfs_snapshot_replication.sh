@@ -1,4 +1,5 @@
 #!/bin/bash
+#arrayStarted=true
 
 # Source/Destination variables
 source_pool="<zfs_source_pool>"
